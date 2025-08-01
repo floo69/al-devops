@@ -115,11 +115,9 @@ def get_file_extension(platform):
     }
     return extensions[platform]
 
-# Streamlit UI
 st.set_page_config(page_title="AI DevOps Generator", page_icon="🚀")
 st.title("🚀 AI Assisted DevOps Generator")
 
-# Sidebar for tool selection
 tool = st.sidebar.selectbox(
     "Select Tool:",
     ["🐳 Docker Generator", "☸️ Kubernetes Generator", "🔄 CI/CD Generator"]
@@ -176,7 +174,6 @@ elif tool == "🔄 CI/CD Generator":
     with col2:
         app_name = st.text_input("Application Name:", value="my-app", key="cicd_app")
         
-        # Show filename for the selected platform
         filenames = {
             "GitHub Actions": ".github/workflows/ci-cd.yml",
             "GitLab CI": ".gitlab-ci.yml",
@@ -190,7 +187,6 @@ elif tool == "🔄 CI/CD Generator":
                 pipeline = generate_cicd_pipeline(platform, language, app_name)
                 st.subheader(f"📄 Generated {platform} Pipeline")
                 
-                # Set appropriate language for syntax highlighting
                 code_language = "yaml" if platform != "Jenkins" else "groovy"
                 st.code(pipeline, language=code_language)
                 

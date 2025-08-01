@@ -113,6 +113,5 @@ if __name__ == '__main__':
     print(f"\nGenerated {platform} CI/CD Pipeline:\n")
     print(pipeline)
     
-    # Show filename
     filename = get_filename(platform)
     print(f"\n💡 Save this as: {filename}")
